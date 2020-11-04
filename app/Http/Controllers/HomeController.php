@@ -53,6 +53,20 @@ class HomeController extends Controller
         return view('home', compact('div','sys','cat','usr','sts','sltsts'));
     }
 
+    public function categorylist(Request $request){
+        $id = (isset($_GET['id']) ? $_GET['id'] : '');
+
+        $fndcat = DB::table('categories')
+                ->where('system_id', $id)
+                ->get();
+
+        // dd($fndcat);
+        // $statusrow = Status::find($selstat);
+        // $statusflag = $statusrow->flag;
+
+        return response($fndcat);
+    }
+
     public function store(Request $request)
     {
 

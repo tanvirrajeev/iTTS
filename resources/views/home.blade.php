@@ -18,7 +18,7 @@
 
 
                     {{-- Ticket Form --}}
-                    <form action="/home" method="POST">
+                    <form id="ticket" action="/home" method="POST">
                       @csrf
                         <div class="form-row">
                           <div class="col-md-12 mb-3">
@@ -75,18 +75,20 @@
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom03">System:</label>
                                 <select class="form-control form-control-sm" name="system" id="system" required>
-                                  @foreach ($sys as $item)
+                                    <option disabled selected>Select</option>
+                                    @foreach ($sys as $item)
                                       <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                  @endforeach
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="validationCustom04">Category:</label>
-                              <select class="form-control form-control-sm" name="category" id="category" required>
+                                <select class="form-control form-control-sm" name="category" id="category" required></select>
+                              {{-- <select class="form-control form-control-sm" name="category" id="category" required>
                                 @foreach ($cat as $item)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
                                 @endforeach
-                              </select>
+                              </select> --}}
                             </div>
                             <div class="col-md-4 mb-3">
                               <label for="validationCustom03">Date:</label>
@@ -151,6 +153,46 @@
         }
     });
   });
+</script>
+
+<script>
+$(document).ready(function(){
+    $("#system").change(function() {
+        var tk = $('#ticket');
+        // console.log(tk.find('#system').val());
+        if($(this).val()){
+            tk.find('#category').empty();
+            console.log(tk.find('#system').val());
+            id = tk.find('#system').val();
+            console.log("ID: "+id);
+            $.ajax({
+            type: 'get',
+            url: "{{ url('/ticket/categorylist') }}",
+            data: {id:id},
+            success:function(data){
+                var id;
+                var name;
+                for (i in data){
+                    console.log("From Controller2: "+data[i].id);
+                    console.log("From Controller2: "+data[i].name);
+                    id = data[i].id;
+                    name = data[i].name;
+                    tk.find('#category').append("<option value=" + data[i].id +">" +data[i].name +"</option>");
+                }
+
+                }
+            })
+
+
+        }
+        // else {
+        // $("#towns").attr('disabled',true);
+        // $("#towns").empty();
+
+
+        // }
+    });
+});
 </script>
 
 

@@ -35,6 +35,7 @@ Route::get('/division', 'DivisionController@index')->name('div')->middleware('au
 Route::get('/allticketsbyuser', 'AllticketsbyuserController@index')->name('allticketsbyuser')->middleware('auth');
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 // Route::post('/allticketsbyuser/{from}/{to}', 'Allticketsbyuser@datefilter')->name('allticketsbyuserparam')->middleware('auth');
+Route::get('ticket/categorylist', 'HomeController@categorylist')->name('categorylist');
 
 //Report Route
 Route::get('/graph', 'GraphController@index')->name('graph')->middleware('auth');
