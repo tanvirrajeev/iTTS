@@ -1,0 +1,126 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\graph;
+use App\Ticket;
+use App\Division;
+use App\System;
+use App\Category;
+use App\Status;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+
+
+class GraphController extends Controller
+{
+
+    public function index()
+    {
+        $data = DB::table('tickets')
+            ->join('systems', 'tickets.system_id', '=', 'systems.id')
+            ->select(
+                DB::raw('systems.name as name'),
+                DB::raw('count(*) as count')
+            )
+            ->whereDate('tickets.created_at', '=', today()->toDateString())
+            ->groupBy('systems.name')
+            ->get();
+
+
+        // $ticketcount = Ticket::whereDate('created_at', today())->count();
+        // $ticket = Ticket::whereDate('created_at', today()->toDateString())->pluck('system_id')
+        //     ->groupBy('system_id');
+            // ->get();
+        
+        // $div = Division::all();
+        // dd($div);        
+        // $ticket = Ticket::all();
+        // dd($ticket);
+
+        //-------Monthly Ticket-------//
+        // $from = $request->from;
+        // $to = $request->to;
+        // $sales = Sale::whereBetween('created_at', [$from.' 00:00:00',$to.' 23:59:59'])->get();
+        //
+        // $from = date('2020-04-01');
+        // $to = date('2020-04-30');
+        // $month = Ticket::whereBetween('created_at', [$from, $to])->get();
+        // dd($month);
+        $month = DB::table('tickets')
+                ->join('divisions', 'tickets.division_id', '=', 'divisions.id')
+                ->select(
+                    DB::raw('tickets.name as tktname'),
+                    DB::raw('divisions.name as divname'),
+                    DB::raw('tickets.created_at')
+                )
+                ->whereMonth('tickets.created_at', '4')
+                ->paginate(15);
+
+        //-------!Monthly Ticket-------//
+
+        //-------Month by DIV---------// 
+        $monthdiv = DB::table('tickets')
+        ->join('divisions', 'tickets.division_id', '=', 'divisions.id')
+        ->join('systems', 'tickets.system_id', '=', 'systems.id')
+        ->select(
+            DB::raw('divisions.name as divname'),
+            DB::raw('systems.name as sysname'),
+            DB::raw('count(*) as count')
+        )
+        ->whereMonth('tickets.created_at', '4')
+        ->groupBy('divisions.name','systems.name')
+        ->orderBy('systems.name', 'ASC')
+        ->get();
+        // dd($monthdiv);
+        //-------!Month by DIV---------// 
+
+        $array[] = ['Systemid', 'Count'];
+        foreach ($data as $key => $value) {
+            $array[++$key] = [$value->name, $value->count];
+            // dump($array);
+        }
+
+
+        // View todays ticket 
+        $allticket = Ticket::whereDate('created_at', today())->get();
+        
+        return view('ticket.graph', compact('allticket','month','monthdiv'))->with('system_id', json_encode(
+            $array));
+    }
+
+    public function test(){
+        // return view('ticket.test');
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(graph $graph)
+    {
+        //
+    }
+
+    public function edit(graph $graph)
+    {
+        //
+    }
+
+    public function update(Request $request, graph $graph)
+    {
+        //
+    }
+
+    public function destroy(graph $graph)
+    {
+        //
+    }
+}
