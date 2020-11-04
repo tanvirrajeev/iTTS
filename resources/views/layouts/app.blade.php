@@ -19,8 +19,8 @@
 
     {{-- <script src="//code.jquery.com/jquery.js"></script> --}}
     {{-- <script type="text/javascript" src="dataTables.filter.html.js"></script> --}}
-    
-    
+
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -32,11 +32,11 @@
     <link href="{{ asset('css/datatable.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet"> --}}
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
-    
+
     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> --}}
     <script src="https://kit.fontawesome.com/5ccfe28e2a.js" crossorigin="anonymous"></script>
 
-    
+
 
 </head>
 <body>
@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    IT&ERP Ticketing Systems 
+                    BanglaCAT IT Ticketing Systems
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -121,21 +121,21 @@
                           <a href="/graphbyseverity" class="menu-item fas fa-balance-scale-right"></a>
                           <a href="/graph" class="menu-item fas fa-chart-pie"></a>
                         </menu>
-                      
+
                       </div>
                       <div id="circularMenu1" class="circular-menu circular-menu-left">
                       {{-- To always onpen the menu just write active at the end of the div --}}
                         <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
                           <i class="fa fa-bars"></i>
                         </a>
-                      
+
                         <menu class="items-wrapper">
                           <a href="/home" class="menu-item fa fa-home"></a>
                           <a href="/ticket" class="menu-item fas fa-edit"></a>
                           <a href="/allticketsbyuser" class="menu-item fas fa-book-open"></a>
                           {{-- <a href="/profile" class="menu-item fas fa-user-alt"></a> --}}
                         </menu>
-                      
+
                       </div>
                 </main>
             </div>
@@ -147,7 +147,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-    <script src="{{ asset('js/datatable.js') }}" defer></script>  
+    <script src="{{ asset('js/datatable.js') }}" defer></script>
     @include('sweetalert::alert')
 </body>
 </html>

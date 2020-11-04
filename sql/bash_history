@@ -1,0 +1,456 @@
+apt install apache2 
+systemctl status apache2
+hostname
+ufw allow www
+sudo ufw app list
+mkdir -p /var/www/itts
+1. echo "hello example.com" > /var/www/itts/index.html
+echo "hello example.com" > /var/www/itts/index.html
+cd /etc/apache2/sites-available/
+ls
+cp 000-default.conf itts.conf
+ls
+nano itts.conf 
+ls
+cd /var/www/
+ls
+cd itts/
+ls
+cat index.html 
+cd /etc/apache2/sites-available/
+ls
+nano itts.conf 
+nano itts.conf 
+nano itts.conf 
+nano itts.conf 
+a2ensite itts.conf
+systemctl reload apache2
+a2dissite 000-default.conf
+systemctl reload apache2
+apt install mariadb-server
+mysql_secure_installation
+mysql -u root -p
+apt updatet
+apt update
+apt upgrade
+apt -y install wget php php-cgi php-mysqli php-pear php-mbstring php-gettext libapache2-mod-php php-common php-phpseclib
+apt -y install php-mysql
+apt update
+cd /root/
+pwd
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.zip
+ls
+rm phpMyAdmin-5.0.2-all-languages.zip 
+ls
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-all-languages.tar.gz
+ls
+tar zxvf phpMyAdmin-5.0.2-all-languages.tar.gz
+ls
+cd phpMyAdmin-5.0.2-all-languages/
+ls
+mv phpMyAdmin-5.0.2-all-languages/ /usr/share/phpmyadmin
+mkdir /usr/share/phpmyadmin
+mv phpMyAdmin-5.0.2-all-languages/ /usr/share/phpmyadmin
+ls
+cd ..
+mv phpMyAdmin-5.0.2-all-languages/ /usr/share/phpmyadmin
+cd /usr/share/phpmyadmin
+ls
+cd /root/
+mkdir -p /var/lib/phpmyadmin/tmp
+chown -R www-data:www-data /var/lib/phpmyadmin
+mkdir /etc/phpmyadmin/
+cp /usr/share/phpmyadmin/config.sample.inc.php  /usr/share/phpmyadmin/config.inc.php
+nano /usr/share/phpmyadmin/config.inc.php
+cp /etc/apache2/sites-available/000-default.conf phpmyadmin.conf
+nano /etc/apache2/sites-available/phpmyadmin.conf
+sudo systemctl restart apache2
+systemctl restart apache2
+a2ensite phpmyadmin.conf
+systemctl restart apache2
+mysql -u root -p
+FLUSH PRIVILEGES;
+mysql -u root -p
+php --version 
+ls
+cp itts.tar /var/www/itts/
+cd /var/www/itts/
+ls
+ls
+clear
+ls
+ls
+tar -xvf itts.tar 
+ls
+ls
+cd /var/www/
+ls
+tar -xvf itts.tar
+ls
+cd itts/
+ls
+pwd
+cd /root/
+ls
+cp itts.tar /var/www/itts/
+ls 
+rm -rf itts
+cd /var/www/
+ls
+cd itts/
+ls
+tar -xvf itts.tar
+ls
+clear
+ls
+ls -la
+ls -la
+ls -la
+nano .env 
+ifconfig
+ipaddr
+ip addr
+ping 192.168.2.200
+apt-get install update
+cd /etc/network/
+ls
+nano interfaces
+mii-tools
+ifconfig
+ip addrs
+ip addr
+ls
+nano interfaces
+nano interfaces
+nano interfaces
+vim interfaces
+vi interfaces
+nano interfaces
+ip addr
+nano interfaces
+ifup ens4
+ip addr
+nano interfaces
+ifup eth0
+ip addr
+/etc/init.d/networking restart
+ip addr
+ifdown eth0
+ip addr
+nano interfaces
+/etc/init.d/networking restart
+ip addr
+ifup eth0
+ip addr
+ping 192.168.2.200
+ping 192.168.1.4
+ping yahoo.com
+nano interfaces
+clear
+apt-get update
+apt-get upgrade
+date
+ssh
+nano /etc/ssh/sshd_config 
+/etc/init.d/ssh restart
+cd /var/www/itts/
+ls -la
+php artisan serve
+php artisan cache:clear
+php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
+php artisan serve
+php artisan config:cache
+php artisan cache:clear
+php artisan config:cache
+php artisan serve
+ls
+ls la
+ls -la
+nano .htaccess 
+nano .env
+php artisan cache:clear
+php artisan config:cache
+php artisan serve
+apt install curl git unzip
+cd /opt/
+curl
+a2ensite itts.conf
+a2dissite itts.conf
+a2dissite itts.conf
+a2ensite itts.conf
+systemctl reload apache2
+systemctl reload apache2
+systemctl reload apache2
+systemctl reload apache2
+systemctl reload apache2
+systemctl reload apache2
+cd /var/www/
+ls
+rm -rf itts.bak1/
+ls
+reboot
+systemctl reload apache2
+systemctl reload apache2
+cd /var/www/itts/
+ls
+systemctl reload apache2
+systemctl reload apache2
+systemctl reload apache2
+apt install curl git unzip
+apt update
+apt upgrade
+cd /opt/
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+ls
+cd /var/www/
+git clone https://github.com/laravel/laravel.git
+ls
+clear
+ls
+cd laravel/
+ls
+cd ..
+ls
+composer create-project laravel/laravel your-project --prefer-dist
+composer create-project laravel/laravel itts --prefer-dist
+composer create-project laravel/laravel itts --prefer-dist
+ls
+cd itts
+ls
+a2enmod rewrite
+systemctl restart apache2
+php artisan config:clear
+php artisan config:cache
+chown -R www-data.www-data /var/www/laravel
+chown -R www-data.www-data /var/www/itts
+chmod -R 755 /var/www/itts
+chmod -R 777 /var/www/itts/storage
+php artisan config:cache
+php artisan config:clear
+systemctl restart apache2
+php artisan config:clear
+php artisan config:clear
+php artisan config:clear
+clear
+php artisan config:clear
+php composer.phar  require laravel/ui 
+cd ..
+php composer.phar  require laravel/ui 
+composer  require laravel/ui 
+composer  require laravel/ui 
+composer fund
+php artisan ui vue --auth 
+php artisan ui bootstrap --auth 
+cd itts
+php artisan ui bootstrap --auth 
+php artisan ui vue --auth 
+ls
+ls  -la
+php artisan serve
+php artisan serve
+composer install
+composer install
+composer update
+composer update
+composer update
+composer update
+php artisan config:clear
+php artisan config:cache
+ls
+ls -la
+nano .env
+php artisan config:cache
+php artisan cache:clear
+php artisan config:cache
+php artisan config:cache
+nano .env
+php artisan config:cache
+php artisan config:cache
+systemctl reload apache2.service
+ls -la
+nano .htaccess 
+systemctl reload apache2.service
+php artisan config:cache
+systemctl reload apache2.service
+php artisan config:cache
+systemctl reload apache2.service
+php artisan config:cache
+cd /var/www/
+ls
+tar <?php
+namespace App\Http\Controllers;
+use App\graph;
+use App\Ticket;
+use App\Division;
+use App\System;
+use App\Category;
+use App\Status;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+class GraphController extends Controller
+{     /**;      * Display a listing of the resource.;      *;      * @return \Illuminate\Http\Response;      */;     public function index()
+    {         $data = DB::table('tickets')
+            ->join('systems', 'tickets.system_id', '=', 'systems.id')
+            ->select(
+                DB::raw('systems.name as name'),
+                DB::raw('count(*) as count')
+            )
+            ->whereDate('tickets.created_at', '=', today()->toDateString())
+            ->groupBy('systems.name')
+            ->get();
+            // $data = DB::table('tickets')
+            // ->select(
+            //     DB::raw('tickets.system_id as system_id'),
+            //     DB::raw('count(*) as count')
+            // )
+            // ->whereDate('created_at', '=', today()->toDateString())
+            // ->groupBy('system_id')
+            // ->get();
+        // $ticketcount = Ticket::whereDate('created_at', today())->count();
+        // $ticket = Ticket::whereDate('created_at', today()->toDateString())->pluck('system_id')
+        //     ->groupBy('system_id');
+            // ->get();
+        
+        $array[] = ['Systemid', 'Count'];
+        foreach ($data as $key => $value) {
+            $array[++$key] = [$value->name, $value->count];
+            // dump($array);
+        }
+        $allticket = Ticket::whereDate('created_at', today())->get();
+        
+        return view('ticket.graph', compact('allticket'))->with('system_id', json_encode(
+            $array));
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {         //;     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {         //;     }
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\graph  $graph
+     * @return \Illuminate\Http\Response
+     */
+    public function show(graph $graph)
+    {         //;     }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\graph  $graph
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(graph $graph)
+    {         //;     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\graph  $graph
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, graph $graph)
+    {         //;     }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\graph  $graph
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(graph $graph)
+    {         //;     }
+}
+tar -czvf itts.tar /home/tanvir/
+cd /home/tanvir/
+ls
+cd ..
+ls
+pwd
+tar -czvf itts.tar.gz /var/www/itts
+ls
+cd /var/www/itts
+ls
+cd app/Http/Controllers/
+ls
+nano TicketController.php 
+nano TicketController.php 
+ls
+nano StatusController.php 
+cd ..
+ls
+cd ..
+ls
+cd /var/www/
+ls
+clear
+ls
+ls -la
+tar -zxvf itts.tar.gz 
+cd itts
+ls
+nano .env
+php artisan config:clear
+php artisan config:cache
+cd /root/
+ls
+apt-get install nodejs
+apt-get install npm
+nodejs -v
+npm -v
+cd /var/www/
+cd itts
+npm update
+npm run dev
+npm install jquery-datetimepicker --save-dev  
+npm run dev
+apt-get install node
+cd /var/www/
+ls
+ls
+tar -zxvf itts.tar.gz 
+cd itts
+ls
+ls -la
+cd ..
+cd itts_04_May_2020/
+nano .env
+cd ..
+cd itts
+nano .env
+php artisan cache:clear
+php artisan config:cache
+php artisan cache:clear
+npm update
+run npm dev
+apt-get update
+cd /home/
+ls
+cd tanvir/
+cd /root/
+ls
+apt-get install git-core curl build-essential openssl libssl-dev python
+git clone https://github.com/nodejs/node.git
+ls
+cd node/
+ls
+./configure
+clear
+ls
+./configure
+apt install python3-distutils -y
+./configure
+make

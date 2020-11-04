@@ -56,7 +56,9 @@
                               <select class="form-control form-control-sm" name="responsible" id="responsible" required>
                                <option value="{{ $ticket->user_id }}" selected>{{ $selectedusrname }}</option>
                                 @foreach ($usr as $item)
+                                    @if ($item->id !== $ticket->user_id)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                 @endforeach
                               </select>
                           </div>
@@ -68,7 +70,9 @@
                                 <select class="form-control form-control-sm" name="system" id="system" required>
                                     <option value="{{ $ticket->system_id }}" selected>{{ $selectedsysname }}</option>
                                   @foreach ($sys as $item)
-                                      <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @if ($item->id !== $ticket->system_id)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                   @endforeach
                                 </select>
 
@@ -81,12 +85,14 @@
                               <select class="form-control form-control-sm" name="category" id="category" required>
                                   <option value="{{ $ticket->category_id }}" selected>{{ $selectedcatname }}</option>
                                 @foreach ($cat as $item)
+                                    @if ($item->id !== $ticket->category_id)
                                     <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endif
                                 @endforeach
                               </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                              <label for="validationCustom03">Date:</label>    
+                              <label for="validationCustom03">Date:</label>
                               <i class="fa fa-calendar-alt"></i>
                               <input type="text" class="datetimepicker" value="{{ $ticket->created_at }}" name="datetimepicker" id="datetimepicker" autocomplete="off" required>
                           </div>
@@ -98,7 +104,9 @@
                           <select class="form-control form-control-sm" name="status" id="status" required>
                               <option value="{{ $ticket->statuses_id }}" selected>{{ $selectedstsname }}</option>
                             @foreach ($sts as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @if ($item->id !== $ticket->statuses_id)
+                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endif
                             @endforeach
                           </select>
                         </div>
@@ -117,7 +125,7 @@
                             <textarea class="form-control" id="severity_comments" rows="3" name="severity_comments" style="display:none" placeholder="Severity notes if Critical..." >{{ $ticket->severity_comments }}</textarea>
                         </div>
                       </div>
-                        
+
 
 
                         <button class="btn btn-danger" type="submit">Update Ticket</button>
@@ -133,9 +141,9 @@
   jQuery(document).ready(function(){
     $("#severity").change(function() {
         if($(this).val() == 'CRITICAL'){
-  
+
           $('#severity_comments').show();
-  
+
         }else{
           $('#severity_comments').hide();
         }

@@ -17,8 +17,8 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
     <script src="{{ asset('js/ticket_dropdown.js') }}"></script>
-    <script src="{{ asset('js/datatable.js') }}" defer></script>  
-    
+    <script src="{{ asset('js/datatable.js') }}" defer></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -29,11 +29,11 @@
     <link href="{{ asset('css/circularmenu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/datatable.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet"> --}}
-    
+
     {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"> --}}
     <script src="https://kit.fontawesome.com/5ccfe28e2a.js" crossorigin="anonymous"></script>
 
-    
+
 
 </head>
 
@@ -43,10 +43,10 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                
+
                 <div class="card-header bg-warning">
-                    <div class="d-flex justify-content-center"><span><h4><img src="{{asset('images/main_logo.png')}}" height="50px" width="110px" style="padding:5px" />IT&ERP Ticketing Systems -iTTS</h4></span></div>
-                    
+                    <div class="d-flex justify-content-center"><span><h4><img src="{{asset('images/main_logo.png')}}" height="50px" width="110px" style="padding:5px" />IT Ticketing Systems -iTTS</h4></span></div>
+
                 </div>
                 {{-- {{ __('Login') }} --}}
                 <div class="card-body">

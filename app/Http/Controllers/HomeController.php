@@ -8,6 +8,7 @@ use App\Ticket;
 use App\System;
 use App\Category;
 use App\User;
+use App\Status;
 Use Alert;
 
 use Illuminate\Support\Facades\DB;
@@ -39,19 +40,24 @@ class HomeController extends Controller
         $sys = DB::table('systems')->get();
         $cat = DB::table('categories')->get();
         $usr = DB::table('users')->get();
+        // $sltsts = DB::table('statuses')
+        //         ->where('statuses.id','4')
+        //         ->get();
         $sts = DB::table('statuses')->get();
+        $sltsts = Status::find(4);
+        // dd($sltsts);
 
         // Active User
-        $selecteduser = auth()->user();
+        // $selecteduser = auth()->user();
 
-        return view('home', compact('div','sys','cat','usr','selecteduser','sts'));
+        return view('home', compact('div','sys','cat','usr','sts','sltsts'));
     }
 
     public function store(Request $request)
     {
-        
+
         $ticket = new Ticket;
-        $status = 2;
+        // $status = 2;
 
         // dump($request->category);
 
@@ -66,10 +72,11 @@ class HomeController extends Controller
         $ticket->severity = $request->severity;
         $ticket->severity_comments = $request->severity_comments;
         $ticket->statuses_id = $request->status;
+        // $ticket->statuses_id = $status;
         $ticket->save();
 
         // return redirect (route('home'))->with('toast_success','Ticket Raised Successfully');
-        return redirect (route('home'))->withToastSuccess('Ticket Raised Successfully!');
+        return redirect (route('ticketview'))->withToastSuccess('Ticket Raised Successfully!');
         // return redirect (route('home'))->withSuccess('Ticket Raised Successfully!');
 
 
