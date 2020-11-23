@@ -63,13 +63,13 @@
                                     {{-- <td>{{ $selectedusrname }}</td> --}}
                                     {{-- <td>{{ $item->statuses_id }}</td> --}}
                                         <td>
-                                            @if ($item->statuses_id === 1)
+                                            @if ($item->statuses_id == 1)
                                             <div class="d-flex justify-content-center"><span class="badge badge-success">Done</span></div>
 
-                                            @elseif ($item->statuses_id === 2)
+                                            @elseif ($item->statuses_id == 2)
                                             <div class="d-flex justify-content-center"><span class="badge badge-warning">On Progress</span></div>
 
-                                            @elseif ($item->statuses_id === 4)
+                                            @elseif ($item->statuses_id == 4)
                                             <div class="d-flex justify-content-center"><span class="badge badge-info">New Ticket</span></div>
 
                                             {{-- <div class="d-flex justify-content-center"><a href="#" class="badge badge-warning">On Progress</a></div> --}}

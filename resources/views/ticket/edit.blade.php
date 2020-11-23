@@ -94,7 +94,7 @@
                             <div class="col-md-4 mb-3">
                               <label for="validationCustom03">Date:</label>
                               <i class="fa fa-calendar-alt"></i>
-                              <input type="text" class="datetimepicker" value="{{ $ticket->created_at }}" name="datetimepicker" id="datetimepicker" autocomplete="off" required>
+                              <input type="text" class="datetimepicker" value="{{ $ticket->ticket_date }}" name="datetimepicker" id="datetimepicker" autocomplete="off" required>
                           </div>
                         </div>
 

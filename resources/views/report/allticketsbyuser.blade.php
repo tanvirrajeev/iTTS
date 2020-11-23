@@ -16,12 +16,12 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom03">From</label>    
+                                <label for="validationCustom03">From</label>
                                 <i class="fa fa-calendar-alt"></i>
                             <input type="text" class="datepicker" name="from" id="from" required>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom03">To</label>    
+                                <label for="validationCustom03">To</label>
                                 <i class="fa fa-calendar-alt"></i>
                                 <input type="text" class="datepicker" name="to" id="to" required>
                             </div>
@@ -63,12 +63,19 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($item->statuses_id === 1)
+                                        @if ($item->statuses_id == 1)
                                         <div class="d-flex justify-content-center"><span class="badge badge-success">Done</span></div>
-                                        @elseif ($item->statuses_id === 2)
+
+                                        @elseif ($item->statuses_id == 2)
                                         <div class="d-flex justify-content-center"><span class="badge badge-warning">On Progress</span></div>
+
+                                        @elseif ($item->statuses_id == 4)
+                                        <div class="d-flex justify-content-center"><span class="badge badge-info">New Ticket</span></div>
+
+                                        {{-- <div class="d-flex justify-content-center"><a href="#" class="badge badge-warning">On Progress</a></div> --}}
                                         @else
                                         <div class="d-flex justify-content-center"><span class="badge badge-danger ">Hold</span></div>
+
                                         @endif
                                     </td>
                                 </tr>
@@ -78,7 +85,7 @@
                         </table>
                         <div class="row float-right">
                           <div class="col-md-4 mb-3">
-                            {{ $ticket->links() }}                           	
+                            {{ $ticket->links() }}
                           </div>
                         </div>
                     </div>

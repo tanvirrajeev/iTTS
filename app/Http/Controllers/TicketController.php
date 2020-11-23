@@ -87,7 +87,7 @@ class TicketController extends Controller
     public function edit($id)
     {
         $ticket = Ticket::find($id);
-        
+
 
         $div = DB::table('divisions')->get();
         $sys = DB::table('systems')->get();
@@ -131,7 +131,7 @@ class TicketController extends Controller
 
     public function update(Request $request, $id)
     {
-        
+
         $ticket = new Ticket;
 
         // dump($request->category);
@@ -143,10 +143,11 @@ class TicketController extends Controller
         $ticket->user_id = $request->responsible;
         $ticket->system_id = $request->system;
         $ticket->category_id = $request->category;
-        $ticket->created_at = $request->datetimepicker;
+        $ticket->ticket_date = $request->datetimepicker;
         $ticket->severity = $request->severity;
         $ticket->severity_comments = $request->severity_comments;
         $ticket->statuses_id = $request->status;
+        // $ticket->statuses_id = 4;
         $ticket->save();
 
         return redirect (route('ticketview'))->with('toast_success','Ticket Updated Successfully...');
@@ -156,7 +157,7 @@ class TicketController extends Controller
     // public function editstatus($id)
     // {
     //     $ticket = Ticket::find($id);
-        
+
     //     $sts = DB::table('statuses')->get();
 
     //     // Find selected Status
@@ -180,7 +181,7 @@ class TicketController extends Controller
         // $selectedsts = Status::find($statusid);
         // $selectedstsname = $selectedsts->name;
         // // dump($selectedstsname);
-        
+
         // return view('ticket.edit', compact('selectedstsname','sts') );
         return view('ticket.statusupdate', compact('ticketid','statusid') );
 

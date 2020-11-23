@@ -20,7 +20,8 @@ class Ticket extends Model
             $his->user_id = $ticket->user_id;
             $his->severity = $ticket->severity;
             $his->severity_comments = $ticket->severity_comments;
-            $his->status_id = $ticket->statuses_id;
+            $his->statuses_id = $ticket->statuses_id;
+            $his->ticket_date = $ticket->ticket_date;
             $his->save();
         });
 

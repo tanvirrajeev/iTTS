@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('home.home')->middleware('auth');
 Route::post('/home', 'HomeController@store')->name('store')->middleware('auth');
 Route::get('/ticket', 'TicketController@index')->name('ticketview')->middleware('auth');
 Route::get('/ticket/edit/{id}', 'TicketController@edit')->name('ticketedit')->middleware('auth');
@@ -30,7 +30,7 @@ Route::post('/ticket/update/{id}', 'TicketController@update')->name('ticketupdat
 Route::get('/ticket/delete/{id}', 'TicketController@destroy')->name('ticketdelete');
 Route::post('/ticket/statusupdate/{id1}/{id2}', 'TicketController@statusupdate')->name('statusupdate')->middleware('auth');
 Route::get('/report', 'ReportController@index')->name('report')->middleware('auth');
-Route::get('/test', 'GraphController@test')->name('graph')->middleware('auth');
+// Route::get('/test', 'GraphController@test')->name('graph')->middleware('auth');
 Route::get('/division', 'DivisionController@index')->name('div')->middleware('auth');
 Route::get('/division/divisionlist', 'DivisionController@divisionlist')->name('divisionlist');
 Route::get('/allticketsbyuser', 'AllticketsbyuserController@index')->name('allticketsbyuser')->middleware('auth');

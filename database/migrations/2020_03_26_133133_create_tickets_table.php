@@ -20,12 +20,13 @@ class CreateTicketsTable extends Migration
                 $table->string('description')->nullable();
                 $table->string('raised_by');
                 $table->unsignedInteger('division_id');
-                $table->unsignedInteger('users_id');
+                $table->unsignedInteger('user_id');
                 $table->unsignedInteger('system_id');
                 $table->unsignedInteger('category_id');
                 $table->string('severity');
                 $table->string('severity_comments')->nullable();
-                $table->string('status_id');
+                $table->string('statuses_id');
+                $table->timestamp('ticket_date');
                 $table->timestamps();
             });
         }

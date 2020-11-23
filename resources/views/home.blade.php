@@ -111,8 +111,8 @@
                             </select>
                           </div>
 
-                          <div class="col-md-4 mb-3">
-                            {{-- <label for="validationCustom04">Status:</label> --}}
+                          {{-- <div class="col-md-4 mb-3">
+                            <label for="validationCustom04">Status:</label>
                           <select class="form-control form-control-sm" name="status" id="status" required>
                             <option value="{{ $sltsts->id }}" selected>{{ $sltsts->name }}</option>
                             @foreach ($sts as $item)
@@ -121,7 +121,7 @@
                                 @endif
                             @endforeach
                           </select>
-                        </div>
+                        </div> --}}
 
                           <div class="col-md-4 mb-3">
                             {{-- <label for="validationServer023">Severity Notes</label> --}}
@@ -156,7 +156,7 @@
   });
 </script>
 
-<script>
+{{-- <script>
     jQuery(document).ready(function(){
         hide();
         function hide(){
@@ -164,7 +164,7 @@
         status.style.visibility = 'hidden';
 }
     });
-</script>
+</script> --}}
 
 {{-- Populate Sub-Category based on Category list  --}}
 <script>

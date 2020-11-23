@@ -82,11 +82,12 @@ class HomeController extends Controller
         $ticket->user_id = $request->responsible;
         $ticket->system_id = $request->system;
         $ticket->category_id = $request->category;
-        $ticket->created_at = $request->datetimepicker;
+        // $ticket->created_at = $request->datetimepicker;
+        $ticket->ticket_date = $request->datetimepicker;
         $ticket->severity = $request->severity;
         $ticket->severity_comments = $request->severity_comments;
-        $ticket->statuses_id = $request->status;
-        // $ticket->statuses_id = $status;
+        // $ticket->statuses_id = $request->status;
+        $ticket->statuses_id = 4;
         $ticket->save();
 
         // return redirect (route('home'))->with('toast_success','Ticket Raised Successfully');

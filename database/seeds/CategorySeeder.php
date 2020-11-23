@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Category;
 
 class CategorySeeder extends Seeder
 {
@@ -11,6 +12,12 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $items = [
+            ['system_id' => '', 'name' => '', 'description' => '', 'created_by' => 'Tanvir Rahim' ],
+        ];
+
+        foreach ($items as $item) {
+            Division::create($item);
+        }
     }
 }

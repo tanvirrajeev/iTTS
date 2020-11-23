@@ -20,7 +20,8 @@ class CreateHistoriesTable extends Migration
             // $table->unsignedInteger('severity_id');
             $table->string('severity');
             $table->string('severity_comments')->nullable();
-            $table->unsignedInteger('status_id');
+            $table->unsignedInteger('statuses_id');
+            $table->timestamp('ticket_date');
             $table->timestamps();
         });
     }
