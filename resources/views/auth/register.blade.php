@@ -61,6 +61,22 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="divisionlbl" class="col-md-4 col-form-label text-md-right">Division</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus> --}}
+                            <select class="form-control form-control-sm" name="division" id="division" required>
+                                <option disabled selected>Select your Division</option>
+
+
+                                    {{-- <option value="1">Degital Enterprise</option>
+                                    <option value="2">SCM</option>
+                                    <option value="3">Sales</option> --}}
+                            </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -74,4 +90,27 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+        var tk = $('#division');
+        $.ajax({
+                type: 'get',
+                url: "{{ url('/division/divisionlist') }}",
+                // data: {id:id},
+                success:function(data){
+                    console.log(data);
+                    for(i in data){
+                        // console.log("From Controller2: "+data[i].id);
+                        // console.log("From Controller2: "+data[i].name);
+                        tk.append("<option value=" + data[i].id +">" +data[i].name +"</option>");
+                    }
+
+                    }
+                })
+
+    });
+    </script>
+
 @endsection

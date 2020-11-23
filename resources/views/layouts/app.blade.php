@@ -44,7 +44,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    BanglaCAT IT Ticketing Systems
+                    <span><h6><img src="{{asset('images/main_logo.png')}}" height="30px" width="90px" style="padding:0px" />IT Ticketing System</h6></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -123,7 +123,7 @@
                         </menu>
 
                       </div>
-                      <div id="circularMenu1" class="circular-menu circular-menu-left">
+                      <div id="circularMenu1" class="circular-menu circular-menu-left active">
                       {{-- To always onpen the menu just write active at the end of the div --}}
                         <a class="floating-btn" onclick="document.getElementById('circularMenu1').classList.toggle('active');">
                           <i class="fa fa-bars"></i>

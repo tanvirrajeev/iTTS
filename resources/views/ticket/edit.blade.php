@@ -66,7 +66,7 @@
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom03">System:</label>
+                                <label for="validationCustom03">Category:</label>
                                 <select class="form-control form-control-sm" name="system" id="system" required>
                                     <option value="{{ $ticket->system_id }}" selected>{{ $selectedsysname }}</option>
                                   @foreach ($sys as $item)
@@ -81,7 +81,7 @@
                               </div>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom04">Category:</label>
+                                <label for="validationCustom04">Sub-Category:</label>
                               <select class="form-control form-control-sm" name="category" id="category" required>
                                   <option value="{{ $ticket->category_id }}" selected>{{ $selectedcatname }}</option>
                                 @foreach ($cat as $item)
@@ -114,15 +114,31 @@
                               <label for="validationCustom04">Severity</label>
                             <select class="form-control form-control-sm" name="severity" id="severity" onchange="showseverity(this.value)" required>
                               <option value="{{ $ticket->severity }}">{{ $ticket->severity }}</option>
-                              <option value="LOW">LOW</option>
-                              <option value="MEDIUM">MEDIUM</option>
-                              <option value="HIGH">HIGH</option>
-                              <option value="CRITICAL">CRITICAL</option>
+                                @if ($ticket->severity == 'LOW')
+                                    <option value="MEDIUM">MEDIUM</option>
+                                    <option value="HIGH">HIGH</option>
+                                    <option value="CRITICAL">CRITICAL</option>
+
+                                @elseif ($ticket->severity == 'MEDIUM')
+                                    <option value="LOW">LOW</option>
+                                    <option value="HIGH">HIGH</option>
+                                    <option value="CRITICAL">CRITICAL</option>
+
+                                @elseif ($ticket->severity == 'HIGH')
+                                    <option value="LOW">LOW</option>
+                                    <option value="MEDIUM">MEDIUM</option>
+                                    <option value="CRITICAL">CRITICAL</option>
+
+                                @else
+                                    <option value="LOW">LOW</option>
+                                    <option value="MEDIUM">MEDIUM</option>
+                                    <option value="HIGH">HIGH</option>
+                                @endif
                             </select>
                           </div>
                           <div class="col-md-4 mb-3">
                             {{-- <label for="validationServer023">Severity Notes</label> --}}
-                            <textarea class="form-control" id="severity_comments" rows="3" name="severity_comments" style="display:none" placeholder="Severity notes if Critical..." >{{ $ticket->severity_comments }}</textarea>
+                            <textarea class="form-control" id="severity_comments" rows="3" name="severity_comments" style="display:none" placeholder="Severity notes if Critical...">{{ $ticket->severity_comments }}</textarea>
                         </div>
                       </div>
 

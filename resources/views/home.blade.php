@@ -73,7 +73,7 @@
 
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom03">System:</label>
+                                <label for="validationCustom03">Category:</label>
                                 <select class="form-control form-control-sm" name="system" id="system" required>
                                     <option disabled selected>Select</option>
                                     @foreach ($sys as $item)
@@ -82,7 +82,7 @@
                                 </select>
                             </div>
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom04">Category:</label>
+                                <label for="validationCustom04">Sub-Category:</label>
                                 <select class="form-control form-control-sm" name="category" id="category" required></select>
                               {{-- <select class="form-control form-control-sm" name="category" id="category" required>
                                 @foreach ($cat as $item)
@@ -102,7 +102,17 @@
                         <div class="form-row">
 
                           <div class="col-md-4 mb-3">
-                            <label for="validationCustom04">Status:</label>
+                              <label for="validationCustom04">Severity</label>
+                            <select class="form-control form-control-sm" name="severity" id="severity" onchange="showseverity(this.value)" required>
+                              <option value="LOW">LOW</option>
+                              <option value="MEDIUM">MEDIUM</option>
+                              <option value="HIGH">HIGH</option>
+                              <option value="CRITICAL">CRITICAL</option>
+                            </select>
+                          </div>
+
+                          <div class="col-md-4 mb-3">
+                            {{-- <label for="validationCustom04">Status:</label> --}}
                           <select class="form-control form-control-sm" name="status" id="status" required>
                             <option value="{{ $sltsts->id }}" selected>{{ $sltsts->name }}</option>
                             @foreach ($sts as $item)
@@ -113,15 +123,6 @@
                           </select>
                         </div>
 
-                          <div class="col-md-4 mb-3">
-                              <label for="validationCustom04">Severity</label>
-                            <select class="form-control form-control-sm" name="severity" id="severity" onchange="showseverity(this.value)" required>
-                              <option value="LOW">LOW</option>
-                              <option value="MEDIUM">MEDIUM</option>
-                              <option value="HIGH">HIGH</option>
-                              <option value="CRITICAL">CRITICAL</option>
-                            </select>
-                          </div>
                           <div class="col-md-4 mb-3">
                             {{-- <label for="validationServer023">Severity Notes</label> --}}
                             <textarea class="form-control" id="severity_comments" rows="3" name="severity_comments" style="display:none" placeholder="Severity notes if Critical..." ></textarea>
@@ -140,7 +141,7 @@
 </div>
 
 
-
+{{-- Show Comments box if the severity is CRITICAL  --}}
 <script>
   jQuery(document).ready(function(){
     $("#severity").change(function() {
@@ -155,6 +156,17 @@
   });
 </script>
 
+<script>
+    jQuery(document).ready(function(){
+        hide();
+        function hide(){
+        var status = document.getElementById('status');
+        status.style.visibility = 'hidden';
+}
+    });
+</script>
+
+{{-- Populate Sub-Category based on Category list  --}}
 <script>
 $(document).ready(function(){
     $("#system").change(function() {

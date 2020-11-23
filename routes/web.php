@@ -32,10 +32,11 @@ Route::post('/ticket/statusupdate/{id1}/{id2}', 'TicketController@statusupdate')
 Route::get('/report', 'ReportController@index')->name('report')->middleware('auth');
 Route::get('/test', 'GraphController@test')->name('graph')->middleware('auth');
 Route::get('/division', 'DivisionController@index')->name('div')->middleware('auth');
+Route::get('/division/divisionlist', 'DivisionController@divisionlist')->name('divisionlist');
 Route::get('/allticketsbyuser', 'AllticketsbyuserController@index')->name('allticketsbyuser')->middleware('auth');
 Route::get('/profile', 'ProfileController@index')->name('profile')->middleware('auth');
 // Route::post('/allticketsbyuser/{from}/{to}', 'Allticketsbyuser@datefilter')->name('allticketsbyuserparam')->middleware('auth');
-Route::get('ticket/categorylist', 'HomeController@categorylist')->name('categorylist');
+Route::get('ticket/categorylist', 'HomeController@categorylist')->name('categorylist')->middleware('auth');
 
 //Report Route
 Route::get('/graph', 'GraphController@index')->name('graph')->middleware('auth');
